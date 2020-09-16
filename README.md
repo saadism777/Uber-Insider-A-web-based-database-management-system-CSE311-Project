@@ -2,11 +2,11 @@ Uber_Insider database includes sensitive details such as personal data of each e
 Login page: First the manager log in to the database with personal username and password and he can see some features like-
 Driver Information, Car information, Owner Information and also the complaint box
 
-Driver Information - Driver id ,Driver name,Driver Address,Driver Phone number,Driven car no,Hire date,salary,Rating
+Driver Information - Driver id ,Driver First name, Driver last name Driver Address,Phone number,Driven car no,Hire date,Monthly earning,uber contribution,Rating
 
-Car Infromation-Car license no,car name,car color,car owner name
+Car Infromation-Car license no,car name,car color,car owner first name,car owner last name
 
-Owner Information-Owner id,owner name,owner address,own car no
+Owner Information-Owner id,last name,first name,owner address,own car no
 
 Complaint box- Driven car no,driver id,Driver name,complain issue
 
@@ -16,7 +16,10 @@ By this features Uber_Insider can easily monitor their employee’s information 
 
 
 TimeLine:
-Creating a Login page: approx 2 days
-Creating a database and inserting item: approx 2 days
-Connecting the login page with features: 5 days minimum
+Creating a Login page: approx 2 days.
+
+Creating a database and inserting item: approx 2 days.
+
+Connecting the login page with features: 5 days minimum.
+
 Checking everything in the project within 2 days.
