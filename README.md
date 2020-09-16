@@ -12,7 +12,7 @@ Complaint box- Driven car no,driver id,Driver name,complain issue
 
 Any Information can be added or deleted or updated here for the company's betterment  
 
-By this features Uber_Insider can easily monitor their employee’s information and with the rating they can know the performance of their employees and the highest rating employee will get the employee of the year reward. That will encourage them for their works. This database can be used to help Uber_Insider better understand their employees and make data-based decisions that move the company forward.
+By this features Uber_Insider can easily monitor their employee’s information and with the rating they can know the performance of their employees and the highest rating employee will get the employee of the month reward. That will encourage them for their work. This database can be used to help Uber_Insider better understand their employees and make data-based decisions that move the company forward.
 
 
 TimeLine:
