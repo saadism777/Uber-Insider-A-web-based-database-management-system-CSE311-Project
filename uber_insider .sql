@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Sep 16, 2020 at 01:18 PM
+-- Generation Time: Sep 16, 2020 at 03:39 PM
 -- Server version: 10.4.14-MariaDB
 -- PHP Version: 7.2.33
 
@@ -58,6 +58,17 @@ CREATE TABLE `driver` (
 -- --------------------------------------------------------
 
 --
+-- Table structure for table `login`
+--
+
+CREATE TABLE `login` (
+  `USERNAME` varchar(20) NOT NULL,
+  `PASSWORD` varchar(10) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+-- --------------------------------------------------------
+
+--
 -- Table structure for table `owner`
 --
 
@@ -84,6 +95,12 @@ ALTER TABLE `car`
 --
 ALTER TABLE `driver`
   ADD PRIMARY KEY (`DRIVER_ID`);
+
+--
+-- Indexes for table `login`
+--
+ALTER TABLE `login`
+  ADD PRIMARY KEY (`USERNAME`);
 
 --
 -- Indexes for table `owner`
