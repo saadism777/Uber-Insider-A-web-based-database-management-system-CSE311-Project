@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Sep 16, 2020 at 03:39 PM
+-- Generation Time: Sep 17, 2020 at 09:49 AM
 -- Server version: 10.4.14-MariaDB
 -- PHP Version: 7.2.33
 
@@ -28,11 +28,23 @@ SET time_zone = "+00:00";
 --
 
 CREATE TABLE `car` (
-  `CAR_LICENSE_NO` varchar(26) NOT NULL,
+  `CAR_LICENSE_NO` varchar(50) NOT NULL,
   `CAR_NAME` varchar(20) DEFAULT NULL,
   `CAR_COLOR` varchar(10) DEFAULT NULL,
   `OWNER_FIRST_NAME` varchar(10) DEFAULT NULL,
   `OWNER_LAST_NAME` varchar(10) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `complain_box`
+--
+
+CREATE TABLE `complain_box` (
+  `DRIVER_ID` int(10) NOT NULL,
+  `CAR_LICENSE_NO` varchar(50) DEFAULT NULL,
+  `COMPLAIN_TIME` date DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 -- --------------------------------------------------------
@@ -47,9 +59,9 @@ CREATE TABLE `driver` (
   `LAST_NAME` varchar(25) NOT NULL,
   `DRIVER_ADDRESS` varchar(32) DEFAULT NULL,
   `PHONE_NO` int(15) NOT NULL,
-  `DRIVEN_CAR_NO` varchar(12) DEFAULT NULL,
+  `DRIVEN_CAR_NO` varchar(50) DEFAULT NULL,
   `HIRE_DATE` date DEFAULT NULL,
-  `MONTHLY_EARNING` double(8,2) DEFAULT NULL,
+  `MONTHLY_EARNING` double(8,6) DEFAULT NULL,
   `UBER_CONTRIBUTION` double(8,6) DEFAULT NULL,
   `RIDE_NO` int(100) DEFAULT NULL,
   `RATING` double(4,2) DEFAULT NULL
@@ -77,7 +89,7 @@ CREATE TABLE `owner` (
   `FIRST_NAME` varchar(20) DEFAULT NULL,
   `LAST_NAME` varchar(20) DEFAULT NULL,
   `ADDRESS` varchar(30) DEFAULT NULL,
-  `CAR_NO` varchar(15) DEFAULT NULL
+  `CAR_NO` varchar(50) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
@@ -89,6 +101,12 @@ CREATE TABLE `owner` (
 --
 ALTER TABLE `car`
   ADD PRIMARY KEY (`CAR_LICENSE_NO`);
+
+--
+-- Indexes for table `complain_box`
+--
+ALTER TABLE `complain_box`
+  ADD PRIMARY KEY (`DRIVER_ID`);
 
 --
 -- Indexes for table `driver`
