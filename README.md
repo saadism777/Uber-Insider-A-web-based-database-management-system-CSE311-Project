@@ -1,15 +1,22 @@
 Uber_Insider database includes sensitive details such as personal data of each employee, as well as company-related information such as their pay scale, date of hire, and more. The database will work like this.
 
+Register page- Name,email,password,confirm password
 
-Login page: First the manager log in to the database with personal username and password and he can view some features like-
+If a company already register in this they can directly go to login page
+
+
+Login page:  log in to the database with personal username and password and can see some features like-
 
 Driver Information, Car information, Owner Information and also the complaint box
 
-Driver Information - Driver id ,Driver First name, Driver last name Driver Address,Phone number,Driven car no,Hire date,Monthly earning,uber contribution,Rating
 
 Car Infromation-Car license no,car name,car color,car owner first name,car owner last name
 
-Owner Information-Owner id,last name,first name,owner address,own car no
+Owner Information-Owner id,name,owner address,phone number,own car no
+
+Driver Information - Driver id ,Driver name,  Driver Address,Phone number,Driven car no,Hire date,Monthly earning,uber contribution,Rating,Owner id(as foreign key)
+
+Car Infromation-Car license no,car name,car color,owner id(as foreign key),driver id(as foreign key)
 
 Complaint box- Driven car no,driver id,complain time, issue
 
