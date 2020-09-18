@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Sep 18, 2020 at 09:51 AM
+-- Generation Time: Sep 18, 2020 at 10:50 AM
 -- Server version: 10.4.13-MariaDB
 -- PHP Version: 7.2.31
 
@@ -98,16 +98,16 @@ INSERT INTO `driver` (`DRIVER_ID`, `FIRST_NAME`, `LAST_NAME`, `DRIVER_ADDRESS`, 
 CREATE TABLE `log_in` (
   `id` int(11) NOT NULL,
   `username` varchar(50) NOT NULL,
-  `password` varchar(255) NOT NULL,
-  `email` varchar(100) NOT NULL
+  `password` varchar(255) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
 -- Dumping data for table `log_in`
 --
 
-INSERT INTO `log_in` (`id`, `username`, `password`, `email`) VALUES
-(1, 'test', 'test', 'test@test.com');
+INSERT INTO `log_in` (`id`, `username`, `password`) VALUES
+(3, 'saad', '$2y$10$yNDyPCfO8DhR.Jtof9PYc.90ZwdsTgpqBxSXaLpqm.6cANG4AkYce'),
+(4, 'test', '$2y$10$a88KF7lzspEj1NcLJhvsb..WFHk6mt1K06wykfJYLyLtxEVDSFISa');
 
 -- --------------------------------------------------------
 
@@ -176,7 +176,7 @@ ALTER TABLE `owner`
 -- AUTO_INCREMENT for table `log_in`
 --
 ALTER TABLE `log_in`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

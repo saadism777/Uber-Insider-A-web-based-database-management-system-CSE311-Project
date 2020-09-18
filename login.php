@@ -26,8 +26,9 @@
                      <label>Password</label>
                      <input type="password" class="form-control" id="password" name="password">
                   </div>
-                  <button type="submit" value="Login" class="btn btn-black">Login</button>
-                  <p style="padding-top:50%"> Visit our official website <a href="https://www.uber.com/bd/en/" target="_blank">here </a> </p>
+                  <button type="submit" value="Login" class="btn btn-black">Login</button><br>
+                  <p style="padding-top:5%">Are you an employee at uber? Register <a href="register.php">here</a></p>
+                  <p style="padding-top:40%"> Visit our official website <a href="https://www.uber.com/bd/en/" target="_blank">here </a> </p>
                </form>
             </div>
          </div>
