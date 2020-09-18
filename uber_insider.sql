@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Sep 17, 2020 at 12:08 PM
+-- Generation Time: Sep 18, 2020 at 09:51 AM
 -- Server version: 10.4.13-MariaDB
 -- PHP Version: 7.2.31
 
@@ -18,7 +18,7 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Database: `test`
+-- Database: `uber_insider`
 --
 
 -- --------------------------------------------------------
@@ -92,20 +92,22 @@ INSERT INTO `driver` (`DRIVER_ID`, `FIRST_NAME`, `LAST_NAME`, `DRIVER_ADDRESS`, 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `login`
+-- Table structure for table `log_in`
 --
 
-CREATE TABLE `login` (
+CREATE TABLE `log_in` (
+  `id` int(11) NOT NULL,
   `username` varchar(50) NOT NULL,
-  `password` varchar(255) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+  `password` varchar(255) NOT NULL,
+  `email` varchar(100) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
--- Dumping data for table `login`
+-- Dumping data for table `log_in`
 --
 
-INSERT INTO `login` (`username`, `password`) VALUES
-('test', 'test');
+INSERT INTO `log_in` (`id`, `username`, `password`, `email`) VALUES
+(1, 'test', 'test', 'test@test.com');
 
 -- --------------------------------------------------------
 
@@ -155,16 +157,26 @@ ALTER TABLE `driver`
   ADD PRIMARY KEY (`DRIVER_ID`);
 
 --
--- Indexes for table `login`
+-- Indexes for table `log_in`
 --
-ALTER TABLE `login`
-  ADD PRIMARY KEY (`username`);
+ALTER TABLE `log_in`
+  ADD PRIMARY KEY (`id`);
 
 --
 -- Indexes for table `owner`
 --
 ALTER TABLE `owner`
   ADD PRIMARY KEY (`OWNER_ID`);
+
+--
+-- AUTO_INCREMENT for dumped tables
+--
+
+--
+-- AUTO_INCREMENT for table `log_in`
+--
+ALTER TABLE `log_in`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
