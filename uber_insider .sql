@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Sep 18, 2020 at 08:39 PM
+-- Generation Time: Sep 18, 2020 at 09:13 PM
 -- Server version: 10.4.14-MariaDB
 -- PHP Version: 7.2.33
 
@@ -41,6 +41,7 @@ CREATE TABLE `car` (
 
 INSERT INTO `car` (`CAR_LICENSE_NO`, `CAR_NAME`, `CAR_COLOR`, `OWNER_ID`, `DRIVER_ID`) VALUES
 ('Dhaka metro-GA 15-4919', 'Toyota Corolla', 'Black', 2, 101),
+('Dhaka metro-GA 20-0016', 'Toyota Corolla', 'Black', 1, 102),
 ('Dhaka metro-GA 21-8571', 'Toyota Noah', 'White', 2, 101);
 
 -- --------------------------------------------------------
@@ -80,7 +81,8 @@ CREATE TABLE `driver` (
 --
 
 INSERT INTO `driver` (`DRIVER_ID`, `NAME`, `DRIVER_ADDRESS`, `PHONE_NO`, `DRIVEN_CAR_NO`, `HIRE_DATE`, `MONTHLY_EARNING`, `UBER_CONTRIBUTION`, `RIDE_NO`, `RATING`, `OWNER_ID`) VALUES
-(101, 'Saad Pasha', '32/A south mughdapara,Dhaka', '01921384671', 'Dhaka metro-GA 15-4919', '2017-07-02', 12000.75, 3000.18, 40, 4.50, 2);
+(101, 'Saad Pasha', '32/A south mughdapara,Dhaka', '01921384671', 'Dhaka metro-GA 15-4919', '2017-07-02', 12000.75, 3000.18, 40, 4.50, 2),
+(102, 'Anim Hasan', '12/A south jatrabari,dhaka', '01872230823', 'Dhaka metro-GA 20-0016', '2018-05-03', 10000.50, 2500.12, 35, 4.00, 1);
 
 -- --------------------------------------------------------
 
@@ -114,7 +116,9 @@ CREATE TABLE `owner` (
 
 INSERT INTO `owner` (`OWNER_ID`, `NAME`, `ADDRESS`, `PHONE_NO`, `CAR_NO`) VALUES
 (1, 'Abul Hakim', '13/3 simson road,Puran Dhaka', '01921384671', 'Dhaka metro-GA 15-4919'),
-(2, 'Saad Pasha', '32/A south mughdapara,Dhaka', '01921384671', 'Dhaka metro-GA 15-4919');
+(2, 'Saad Pasha', '32/A south mughdapara,Dhaka', '01921384671', 'Dhaka metro-GA 15-4919'),
+(3, 'Fahim Hasan', '20/A khan bari,kalachandpur', '+8801715368169', 'Dhaka metro-GA 21-8571'),
+(4, 'Abdul Jalil', 'Bashundhara R/A,block-B,road-18,house-567A', '01682327464', 'Dhaka metro-GA 20-0061');
 
 --
 -- Indexes for dumped tables
