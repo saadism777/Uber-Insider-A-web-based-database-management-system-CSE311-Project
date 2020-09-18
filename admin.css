@@ -8,10 +8,11 @@
       
 }
 .loggedin{
-    background: #202020;
+    background: white;
+    /*background: #202020;
 background: -moz-radial-gradient(center, #202020 0%, #4C4A4A 100%);
 background: -webkit-radial-gradient(center, #202020 0%, #4C4A4A 100%);
-background: radial-gradient(ellipse at center, #202020 0%, #4C4A4A 100%);
+background: radial-gradient(ellipse at center, #202020 0%, #4C4A4A 100%);*/
 }
 body{
     margin: 0 !important;
@@ -54,17 +55,14 @@ li a{
     color: #fff  !important;
 }
 .bg-img {
-    /* The image used */
     background-image: url(https://images.squarespace-cdn.com/content/v1/5a42ecabedaed8b07382c381/1575079202706-Y1WR1B8MQM0CJCZXT0CK/ke17ZwdGBToddI8pDm48kPfTkB9WlY3NNngJ856as8gUqsxRUqqbr1mOJYKfIPR7LoDQ9mXPOjoJoqy81S2I8N_N4V1vUb5AoIIIbLZhVYwL8IeDg6_3B-BRuF4nNrNcQkVuAT7tdErd0wQFEGFSnLtWIiVBlkNZxDHH90vw4mK2TMUHlvL_OCLYhy8WCvU4QyyigsdnO47i1SC0pwLlxw/Uber+Banner.jpg);
   
     min-height: 350px;
   
-    /* Center and scale the image nicely */
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
   
-    /* Needed to position the navbar */
     position: relative;
   }
  

@@ -20,7 +20,7 @@ $username_err = $password_err = $confirm_password_err = "";
 if($_SERVER["REQUEST_METHOD"] == "POST"){
  
     if(empty(trim($_POST["username"]))){
-        $username_err = "Please enter a username.";
+        $username_err = "<font color=red>Please enter a username.</font>";
     } else{
         $sql = "SELECT id FROM log_in WHERE username = ?";
         
@@ -33,12 +33,12 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
                 mysqli_stmt_store_result($stmt);
                 
                 if(mysqli_stmt_num_rows($stmt) == 1){
-                    $username_err = "This username is already taken.";
+                    $username_err = "<font color=red>This username is already taken.</font>";
                 } else{
                     $username = trim($_POST["username"]);
                 }
             } else{
-                echo "Oops! Something went wrong. Please try again later.";
+                echo "<font color=red>Oops! Something went wrong. Please try again later.</font>";
             }
 
             
@@ -48,20 +48,20 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
     
    
     if(empty(trim($_POST["password"]))){
-        $password_err = "Please enter a password.";     
+        $password_err = "<font color=red>Please enter a password.</font>";     
     } elseif(strlen(trim($_POST["password"])) < 6){
-        $password_err = "Password must have atleast 6 characters.";
+        $password_err = "<font color=red>Password must have atleast 6 characters.</font>";
     } else{
         $password = trim($_POST["password"]);
     }
     
   
     if(empty(trim($_POST["confirm_password"]))){
-        $confirm_password_err = "Please confirm password.";     
+        $confirm_password_err = "<font color=red>Please confirm password.</font>";     
     } else{
         $confirm_password = trim($_POST["confirm_password"]);
         if(empty($password_err) && ($password != $confirm_password)){
-            $confirm_password_err = "Password did not match.";
+            $confirm_password_err = "<font color=red>Password did not match.</font>";
         }
     }
     
@@ -84,7 +84,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
                 
                 header("location: login.php");
             } else{
-                echo "Something went wrong. Please try again later.";
+                echo "<font color=red>Something went wrong. Please try again later.</font>";
             }
 
           

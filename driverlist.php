@@ -38,7 +38,7 @@ if (!isset($_SESSION['loggedin'])) {
                     <th scope="col">ID</th>
                     <th scope="col">First Name</th>
                     <th scope="col">Last Name</th>
-                    <th scope="col">Adress</th>
+                    <th scope="col">Address</th>
                     <th scope="col">Phone Number</th>
                     <th scope="col">Car Numberplate</th>
                     <th scope="col">Hire Date</th>
@@ -51,18 +51,24 @@ if (!isset($_SESSION['loggedin'])) {
                 </thead>
                 
                 <?php
-                  $conn = mysqli_connect("localhost","root","","uber_insider");
-                  if($conn->connect_error){
-                    die("Connection Failed:".$conn->connect_error);
-                  }
-                  $sql = "SELECT * from driver";
-                  $result = "$conn-> query($sql)";
-                  $num_rows=100;
-                  if($result-> $num_rows > 0){
-                    while($row = $result-> fetch_assoc()){
-                      echo "<tr><td>". $row["DRIVER_ID"].
+                  require 'connection.php';
+                  $sql = "SELECT * FROM driver";
+                  
+                  $get_data = mysqli_query($conn,$sql);
+                  if(mysqli_num_rows($get_data) > 0){
+                    while($row = mysqli_fetch_assoc($get_data)){
+                      echo
+                      "<tr><td>". $row["DRIVER_ID"].
                       "</td><td>".$row["FIRST_NAME"].
                       "</td><td>".$row["LAST_NAME"].
+                      "</td><td>".$row["DRIVER_ADDRESS"].
+                      "</td><td>".$row["PHONE_NO"].
+                      "</td><td>".$row["DRIVEN_CAR_NO"].
+                      "</td><td>".$row["HIRE_DATE"].
+                      "</td><td>".$row["MONTHLY_EARNING"].
+                      "</td><td>".$row["UBER_CONTRIBUTION"].
+                      "</td><td>".$row["RIDE_NO"].
+                      "</td><td>".$row["RATING"].
                       "</td></tr>";
 
                     }
@@ -71,7 +77,6 @@ if (!isset($_SESSION['loggedin'])) {
                   else{
                     echo "0 result";
                   }
-                  $conn->close();
                   ?>
                 </tbody>
               </table>

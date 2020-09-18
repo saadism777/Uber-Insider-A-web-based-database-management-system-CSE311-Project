@@ -25,10 +25,10 @@ if ($stmt = $con->prepare('SELECT id, password FROM log_in WHERE username = ?'))
             $_SESSION['id'] = $id;
             header('Location: admin.php');
         } else {
-            echo 'Incorrect password!';
+            echo '<font color=red>Incorrect password!</font>';
         }
     } else {
-        echo 'Incorrect username ';
+        echo '<font color=red>Incorrect username</font>';
     }
     $stmt->close();
 }
