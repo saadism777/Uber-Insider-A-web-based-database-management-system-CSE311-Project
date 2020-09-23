@@ -31,8 +31,7 @@ if (!isset($_SESSION['loggedin'])) {
         </div>
     </nav>
 <br>
-			<h2 color= "white">Home Page</h2>
-			<p>Welcome back, <?=$_SESSION['name']?>!</p>
+			<h1>Welcome back, <?=$_SESSION['name']?>!</h1>
 		</div>
 	</body>
 </html>

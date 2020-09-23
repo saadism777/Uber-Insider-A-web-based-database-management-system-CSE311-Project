@@ -20,11 +20,11 @@
                <form action="session.php" method="POST">
                   <div class="form-group">
                      <label>User Name</label>
-                     <input type="text" class="form-control" id="username" name="username">
+                     <input type="text" class="form-control" id="username" name="username" placeholder="Enter your username">
                   </div>
                   <div class="form-group">
                      <label>Password</label>
-                     <input type="password" class="form-control" id="password" name="password">
+                     <input type="password" class="form-control" id="password" name="password" placeholder="Enter your six digits">
                   </div>
                   <button type="submit" value="Login" class="btn btn-black">Login</button><br>
                   <p style="padding-top:5%">Are you an employee at uber? Register <a href="register.php">here</a></p>

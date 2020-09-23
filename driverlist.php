@@ -10,14 +10,15 @@ if (!isset($_SESSION['loggedin'])) {
 	<head>
 		<meta charset="utf-8">
 		<title>Driver List</title>
-		<link rel = "icon" href =  
+    <link rel = "icon" href =  
    "https://www.iconfinder.com/data/icons/logos-and-brands/512/347_Uber_logo-512.png" 
         type = "image/x-icon">
-        <link rel="stylesheet" href="admin.css"/>
+        
+        
         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
-	</head>
+        <link rel="stylesheet" href="admin.css"/>  
+      </head>
 	<body class="loggedin">
-    <!--<img class="header"src="images\Banner.JPG" alt="uberbanner">-->
     <nav>
         <div class="bg-img">
             <div class="container">
@@ -31,13 +32,26 @@ if (!isset($_SESSION['loggedin'])) {
         </div>
     </nav>
 <br>
+<style>  .myButton {
+  margin-left:45% !important;
+  text-align:center !important;
+color: rgb(255, 255, 255); font-size: 30px; line-height: 30px; padding: 30px; border-radius: 50px; font-family: Georgia, serif; font-weight: normal; text-decoration: none; font-style: normal; font-variant: normal; text-transform: none; background-image: linear-gradient(rgb(0, 0, 0) 0%, rgb(255, 255, 255) 100%); box-shadow: rgba(0, 0, 0, 0) -3px -100px 0px 0px; border: 2px solid rgb(0, 0, 0); display: inline-block;}
+.myButton:hover {
+background: #000000; }
+.myButton:active {
+background: #FFFFFF;
+ }
+  </style>
+  <table >
+  <a  href="DriverReqForm.php">
+<button class="myButton" type="button"> Add </button></a></table>
+<br>
 		<div class="content">
-            <table class="table table-striped table-dark">
+            <table class="table table-hover">
                 <thead>
                   <tr>
                     <th scope="col">ID</th>
-                    <th scope="col">First Name</th>
-                    <th scope="col">Last Name</th>
+                    <th scope="col">Full Name</th>
                     <th scope="col">Address</th>
                     <th scope="col">Phone Number</th>
                     <th scope="col">Car Numberplate</th>
@@ -59,8 +73,7 @@ if (!isset($_SESSION['loggedin'])) {
                     while($row = mysqli_fetch_assoc($get_data)){
                       echo
                       "<tr><td>". $row["DRIVER_ID"].
-                      "</td><td>".$row["FIRST_NAME"].
-                      "</td><td>".$row["LAST_NAME"].
+                      "</td><td>".$row["NAME"].
                       "</td><td>".$row["DRIVER_ADDRESS"].
                       "</td><td>".$row["PHONE_NO"].
                       "</td><td>".$row["DRIVEN_CAR_NO"].
@@ -69,7 +82,11 @@ if (!isset($_SESSION['loggedin'])) {
                       "</td><td>".$row["UBER_CONTRIBUTION"].
                       "</td><td>".$row["RIDE_NO"].
                       "</td><td>".$row["RATING"].
-                      "</td></tr>";
+                      "</td> <td>
+                      <a href='edit.php?DRIVER_ID=".$row["DRIVER_ID"]."'>Edit</a>
+                      <a href='delete.php?DRIVER_ID=".$row["DRIVER_ID"]."'>Delete</a>
+                    </td>
+                      </tr>";
 
                     }
                     echo"</table";
