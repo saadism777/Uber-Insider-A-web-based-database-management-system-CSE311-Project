@@ -3,9 +3,9 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Sep 18, 2020 at 09:13 PM
--- Server version: 10.4.14-MariaDB
--- PHP Version: 7.2.33
+-- Generation Time: Sep 23, 2020 at 06:26 PM
+-- Server version: 10.4.13-MariaDB
+-- PHP Version: 7.2.31
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -92,9 +92,17 @@ INSERT INTO `driver` (`DRIVER_ID`, `NAME`, `DRIVER_ADDRESS`, `PHONE_NO`, `DRIVEN
 
 CREATE TABLE `log_in` (
   `id` int(11) NOT NULL,
-  `username` varchar(50) NOT NULL,
-  `password` varchar(255) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+  `username` varchar(255) NOT NULL,
+  `password` varchar(255) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `log_in`
+--
+
+INSERT INTO `log_in` (`id`, `username`, `password`) VALUES
+(2, 'saadism7', '$2y$10$rwfsznzFUTyV9poSeMKn9ORwwNxgJyGFVM95Nn0.Sh6hEdqNE8YzC'),
+(1, 'test', '$2y$10$.POWRtCUkuU6mv4j5rDAW.PGmBH5Jcf4YYB0TDJsnAItxWzfJuqa2');
 
 -- --------------------------------------------------------
 
@@ -149,13 +157,24 @@ ALTER TABLE `driver`
 -- Indexes for table `log_in`
 --
 ALTER TABLE `log_in`
-  ADD PRIMARY KEY (`id`);
+  ADD PRIMARY KEY (`username`),
+  ADD KEY `id` (`id`);
 
 --
 -- Indexes for table `owner`
 --
 ALTER TABLE `owner`
   ADD PRIMARY KEY (`OWNER_ID`);
+
+--
+-- AUTO_INCREMENT for dumped tables
+--
+
+--
+-- AUTO_INCREMENT for table `log_in`
+--
+ALTER TABLE `log_in`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- Constraints for dumped tables
