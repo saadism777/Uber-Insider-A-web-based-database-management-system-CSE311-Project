@@ -37,7 +37,7 @@ body{
     
 
 }
-#sendBtn{
+.sendBtn{
 	border:0;
 	background:#343050;
 	color:white;

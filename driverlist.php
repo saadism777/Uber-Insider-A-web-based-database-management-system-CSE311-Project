@@ -33,21 +33,20 @@ if (!isset($_SESSION['loggedin'])) {
     </nav>
 <br>
 <style>  .myButton {
-  margin-left:45% !important;
-  text-align:center !important;
-color: rgb(255, 255, 255); font-size: 30px; line-height: 30px; padding: 30px; border-radius: 50px; font-family: Georgia, serif; font-weight: normal; text-decoration: none; font-style: normal; font-variant: normal; text-transform: none; background-image: linear-gradient(rgb(0, 0, 0) 0%, rgb(255, 255, 255) 100%); box-shadow: rgba(0, 0, 0, 0) -3px -100px 0px 0px; border: 2px solid rgb(0, 0, 0); display: inline-block;}
+  width:15%;
+  margin-left:40%;
+color: rgb(255, 255, 255); font-size: 18px; line-height: 18px; padding: 12px; border-radius: 50px; font-family: Georgia, serif; font-weight: normal; text-decoration: none; font-style: normal; font-variant: normal; text-transform: none; background-image: linear-gradient(to right, rgb(0, 0, 0) 0%, rgb(104, 104, 104) 50%, rgb(0, 0, 0) 100%); box-shadow: rgb(0, 0, 0) 5px 5px 15px 5px; border: 2px solid rgb(0, 0, 0); display: inline-block;}
 .myButton:hover {
 background: #000000; }
 .myButton:active {
-background: #FFFFFF;
- }
+background: #000000; }
   </style>
   <table >
   <a  href="DriverReqForm.php">
 <button class="myButton" type="button"> Add </button></a></table>
 <br>
 		<div class="content">
-            <table class="table table-hover">
+            <table class="table table-hover table-dark">
                 <thead>
                   <tr>
                     <th scope="col">ID</th>
@@ -97,8 +96,7 @@ background: #FFFFFF;
                   ?>
                 </tbody>
               </table>
-			<h2 color= "white">Home Page</h2>
-			<p>Welcome back, <?=$_SESSION['name']?>!</p>
-		</div>
+    </div>
+    
 	</body>
 </html>

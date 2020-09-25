@@ -8,7 +8,7 @@ if (!isset($_SESSION['loggedin'])) {
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Driver Details</title>
+  <title>Add Driver Details</title>
   
   <link rel = "icon" href =  
    "https://www.iconfinder.com/data/icons/logos-and-brands/512/347_Uber_logo-512.png" 
@@ -35,21 +35,21 @@ if (!isset($_SESSION['loggedin'])) {
     </div>
 <div class="mane">
 
-<form action="insert.php" method="post" class="submission-form">
+<form action="insert.php?" method="post" class="submission-form">
   <table>
     <tr>
       <td> 
-        Driver_Id :
+        Driver ID :
        </td>
        <td>
-          <input type="Driver_Id" placeholder="Driver_Id" Driver_Id="">
+          <input type="text" placeholder="Driver ID No" name="DRIVER_ID">
     </tr>
     <tr>
     <td>
       Name:
     </td>
     <td>
-         <input type="text" placeholder="Name" Name="">
+         <input type="text" placeholder="Enter your Name" name="NAME">
     </td>
     </tr> 
     <tr>
@@ -57,7 +57,7 @@ if (!isset($_SESSION['loggedin'])) {
       Address:
     </td>
     <td>
-         <input type="Address" placeholder="Address" Address="">
+         <input type="text" placeholder="Address" name="DRIVER_ADDRESS">
     </td>
     </tr> 
     <tr>
@@ -65,7 +65,7 @@ if (!isset($_SESSION['loggedin'])) {
       Phone_No:
     </td>
     <td>
-         <input type="Phone-Number" placeholder="Phone_No" Phone_No="">
+         <input type="text" placeholder="Phone Number" name="PHONE_NO">
     </td>
     </tr> 
     <tr>
@@ -73,7 +73,7 @@ if (!isset($_SESSION['loggedin'])) {
       Driven_Car_No:
     </td>
     <td>
-         <input type="Driven_Car_No" placeholder="Driven_Car_No" Driven_Car_No="">
+         <input type="text" placeholder="Car Numberplate" name="DRIVEN_CAR_NO">
     </td>
     </tr> 
 
@@ -82,24 +82,24 @@ if (!isset($_SESSION['loggedin'])) {
       Hire_Date:
     </td>
     <td>
-         <input type="Date" placeholder="Hire_Date" Hire_Date="">
+         <input type="Date" placeholder="Hire Date" name="HIRE_DATE">
     </td>
     </tr> 
-    <tr>
-    <td>
-      Driven_Car_No:
-    </td>
-    <td>
-         <input type="Driven_Car_No" placeholder="Driven_Car_No" Driven_Car_No="">
-    </td>
-    </tr> 
-
     <tr>
     <td>
       Monthly_Earning:
     </td>
     <td>
-         <input type="Monthly_Earning" placeholder="Monthly_Earning" Monthly_Earning="">
+         <input type="text" placeholder="Monthly Earning" name="MONTHLY_EARNING">
+    </td>
+    </tr> 
+
+    <tr>
+    <td>
+      UBER_CONTRIBUTION:
+    </td>
+    <td>
+         <input type="text" placeholder="Contribution to Uber " name="UBER_CONTRIBUTION">
     </td>
     </tr> 
 
@@ -108,7 +108,7 @@ if (!isset($_SESSION['loggedin'])) {
        Ride_No:
     </td>
     <td>
-         <input type="Ride_No" placeholder="Ride_No" Ride_No="">
+         <input type="text" placeholder="Ride_No" name="RIDE_NO">
     </td>
     </tr> 
     <tr>
@@ -116,17 +116,7 @@ if (!isset($_SESSION['loggedin'])) {
       Rating:
     </td>
     <td>
-         <select>
-          <option>1</option>
-          <option>1.5</option>
-          <option>2</option>
-          <option>2.5</option>
-          <option>3</option>
-          <option>3.5</option>
-          <option>4</option>
-          <option>4.5</option>
-          <option>5</option>
-        </select>
+         <input type="text" placeholder="Average Rating" name="RATING">
   
     </td>
     </tr> 
@@ -135,14 +125,17 @@ if (!isset($_SESSION['loggedin'])) {
        Owner_Id:
     </td>
     <td>
-         <input type="Id" placeholder="Owner_Id" Owner_Id="">
+         <input type="text" placeholder="Owner_Id" name="OWNER_ID">
     </td>
     </tr> 
     <tr>
     <td>
     </td>
     <td>
-         <input type="Submit" value="Submit" id="sendBtn">
+         <input type="Submit" value="insert" class="sendBtn" name="insert">
+    </td>
+    <td>
+        <a class="sendBtn" href="driverlist.php"> Return </a>
     </td>
     </tr> 
 
