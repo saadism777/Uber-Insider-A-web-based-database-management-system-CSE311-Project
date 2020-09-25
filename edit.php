@@ -36,23 +36,29 @@ if (!isset($_SESSION['loggedin'])) {
 <div class="mane">
 <?php
 require 'connection.php';
+
 $user_id = $_GET['DRIVER_ID'];
 $sql = "SELECT * FROM driver WHERE DRIVER_ID='$user_id'";
 $get_user = mysqli_query($conn,$sql);
-
 $row = mysqli_fetch_assoc($get_user);
+
+$car_id = $row['DRIVEN_CAR_NO'];
+$sql2 = "SELECT * FROM car WHERE CAR_LICENSE_NO='$car_id'";
+$get_user2 = mysqli_query($conn,$sql2);
+$row2 = mysqli_fetch_assoc($get_user2);
 
  ?>
 
- <form action="update.php?id=<?=$row['DRIVER_ID']?>" method="post" class="submission-form">
+ <form action="update.php?id=<?=$row['DRIVER_ID']?>&carid=<?=$row['DRIVEN_CAR_NO']?>" method="post" class="submission-form">
  <table>
-    <tr>
-      <td> 
-        Driver ID :
-       </td>
-       <td>
-          <input type="text" placeholder="Driver ID No" name="DRIVER_ID"  value="<?=$row['DRIVER_ID'];?>">
-    </tr>
+ <tr>
+    <td>
+      New ID:
+    </td>
+    <td>
+         <input type="text" placeholder="Enter your New ID" name="DRIVER_ID"  value="<?=$row['DRIVER_ID'];?>">
+    </td>
+    </tr> 
     <tr>
     <td>
       Name:
@@ -71,7 +77,7 @@ $row = mysqli_fetch_assoc($get_user);
     </tr> 
     <tr>
     <td>
-      Phone_No:
+      Phone Number:
     </td>
     <td>
          <input type="text" placeholder="Phone Number" name="PHONE_NO"  value="<?=$row['PHONE_NO'];?>">
@@ -79,11 +85,30 @@ $row = mysqli_fetch_assoc($get_user);
     </tr> 
     <tr>
     <td>
-      Driven_Car_No:
+      Car License No:
     </td>
     <td>
          <input type="text" placeholder="Car Numberplate" name="DRIVEN_CAR_NO"  value="<?=$row['DRIVEN_CAR_NO'];?>">
     </td>
+    </tr> 
+
+    <tr>
+    <td>
+      Car Details:
+    </td>
+    <td>
+         <input type="text" placeholder="Car Model" name="CAR_NAME" value="<?=$row2['CAR_NAME'];?>">
+    </td>
+    <td>
+    <select name="CAR_COLOR">
+          <option value="" disabled selected>Color of the Car</option>
+          <option style="color:red;font-weight: bold" value="Red">Red</option>
+          <option style="color:blue;font-weight: bold" value="Red"value="Blue">Blue</option>
+          <option style="color:yellow;font-weight: bold" value="Red"value="Yellow">Yellow</option>
+          <option style="color:black;font-weight: bold" value="Red"value="Black">Black</option>
+          <option style="color:gray;font-weight: bold" value="Red"value="Gray">Gray</option>
+          <option style="color:silver;font-weight: bold" value="Red"value="Silver">Silver</option>
+        </select>
     </tr> 
 
     <tr>
@@ -96,25 +121,17 @@ $row = mysqli_fetch_assoc($get_user);
     </tr> 
     <tr>
     <td>
-      Monthly_Earning:
+      Monthly Earning:
     </td>
     <td>
          <input type="text" placeholder="Monthly Earning" name="MONTHLY_EARNING"  value="<?=$row['MONTHLY_EARNING'];?>">
     </td>
     </tr> 
 
-    <tr>
-    <td>
-      UBER_CONTRIBUTION:
-    </td>
-    <td>
-         <input type="text" placeholder="Contribution to Uber " name="UBER_CONTRIBUTION"  value="<?=$row['UBER_CONTRIBUTION'];?>">
-    </td>
-    </tr> 
 
     <tr>
     <td>
-       Ride_No:
+    Total Number of Rides:
     </td>
     <td>
          <input type="text" placeholder="Ride_No" name="RIDE_NO"  value="<?=$row['RIDE_NO'];?>">
@@ -122,7 +139,7 @@ $row = mysqli_fetch_assoc($get_user);
     </tr> 
     <tr>
     <td>
-      Rating:
+     Average Rating:
     </td>
     <td>
          <input type="text" placeholder="Average Rating" name="RATING"  value="<?=$row['RATING'];?>">
@@ -132,14 +149,30 @@ $row = mysqli_fetch_assoc($get_user);
     <tr>
     <td>
        Owner_Id:
+       </td>
+       <?php 
+       require 'connection.php';
+            
+    
+                  
+                  $sql = "SELECT OWNER_ID,NAME FROM owner";
+                  $get_data = mysqli_query($conn,$sql);
+                  if(mysqli_num_rows($get_data) > 0){
+                    echo "<td><select name= 'OWNER_ID'>";
+                    echo "<option>--Select Owner--</option>";
+                    while($row = mysqli_fetch_array($get_data)){
+                    echo "<option value='$row[OWNER_ID]'>$row[OWNER_ID] | $row[NAME]</option>";
+                  }
+                  echo "</select>";
+                  mysqli_free_result($get_data);
+                }
+                else {
+                  echo "Something went wrong...";
+              }
+     
+        ?>
     </td>
-    <td>
-         <input type="text" placeholder="Owner_Id" name="OWNER_ID"  value="<?=$row['OWNER_ID'];?>">
-    </td>
-    </tr> 
     <tr>
-    <td>
-    </td>
     <td>
          <input type="Submit" value="insert" class="sendBtn" name="insert">
     </td>

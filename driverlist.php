@@ -58,7 +58,7 @@ background: #000000; }
                     <th scope="col">Monthly Earning</th>
                     <th scope="col">Uber Contribution (25%)</th>
                     <th scope="col">Total Rides Completed</th>
-                    <th scope="col">Rating</th>
+                    <th scope="col">Average Rating &#9733</th>
                     <th colspan="2" scope="col">Actions</th>
                   </tr>
                 </thead>
@@ -80,7 +80,7 @@ background: #000000; }
                       "</td><td>".$row["MONTHLY_EARNING"].
                       "</td><td>".$row["UBER_CONTRIBUTION"].
                       "</td><td>".$row["RIDE_NO"].
-                      "</td><td>".$row["RATING"].
+                      "</td><td>".$row["RATING"]."&#9733".
                       "</td> <td>
                       <a href='edit.php?DRIVER_ID=".$row["DRIVER_ID"]."'>Edit</a>
                       <a href='delete.php?DRIVER_ID=".$row["DRIVER_ID"]."'>Delete</a>

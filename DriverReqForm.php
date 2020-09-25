@@ -38,13 +38,6 @@ if (!isset($_SESSION['loggedin'])) {
 <form action="insert.php?" method="post" class="submission-form">
   <table>
     <tr>
-      <td> 
-        Driver ID :
-       </td>
-       <td>
-          <input type="text" placeholder="Driver ID No" name="DRIVER_ID">
-    </tr>
-    <tr>
     <td>
       Name:
     </td>
@@ -62,7 +55,7 @@ if (!isset($_SESSION['loggedin'])) {
     </tr> 
     <tr>
     <td>
-      Phone_No:
+      Phone Number:
     </td>
     <td>
          <input type="text" placeholder="Phone Number" name="PHONE_NO">
@@ -70,7 +63,7 @@ if (!isset($_SESSION['loggedin'])) {
     </tr> 
     <tr>
     <td>
-      Driven_Car_No:
+      Car License No:
     </td>
     <td>
          <input type="text" placeholder="Car Numberplate" name="DRIVEN_CAR_NO">
@@ -79,7 +72,26 @@ if (!isset($_SESSION['loggedin'])) {
 
     <tr>
     <td>
-      Hire_Date:
+      Car Details:
+    </td>
+    <td>
+         <input type="text" placeholder="Car Model" name="CAR_NAME">
+    </td>
+    <td>
+    <select name="CAR_COLOR">
+          <option value="" disabled selected>Color of the Car</option>
+          <option style="color:red;font-weight: bold" value="Red">Red</option>
+          <option style="color:blue;font-weight: bold" value="Red"value="Blue">Blue</option>
+          <option style="color:yellow;font-weight: bold" value="Red"value="Yellow">Yellow</option>
+          <option style="color:black;font-weight: bold" value="Red"value="Black">Black</option>
+          <option style="color:gray;font-weight: bold" value="Red"value="Gray">Gray</option>
+          <option style="color:silver;font-weight: bold" value="Red"value="Silver">Silver</option>
+        </select>
+    </tr> 
+
+    <tr>
+    <td>
+      Hire Date:
     </td>
     <td>
          <input type="Date" placeholder="Hire Date" name="HIRE_DATE">
@@ -87,25 +99,18 @@ if (!isset($_SESSION['loggedin'])) {
     </tr> 
     <tr>
     <td>
-      Monthly_Earning:
+      Monthly Earning:
     </td>
     <td>
          <input type="text" placeholder="Monthly Earning" name="MONTHLY_EARNING">
     </td>
     </tr> 
 
-    <tr>
-    <td>
-      UBER_CONTRIBUTION:
-    </td>
-    <td>
-         <input type="text" placeholder="Contribution to Uber " name="UBER_CONTRIBUTION">
-    </td>
-    </tr> 
+    
 
     <tr>
     <td>
-       Ride_No:
+       Total Number of Rides:
     </td>
     <td>
          <input type="text" placeholder="Ride_No" name="RIDE_NO">
@@ -113,7 +118,7 @@ if (!isset($_SESSION['loggedin'])) {
     </tr> 
     <tr>
     <td>
-      Rating:
+      Average Rating:
     </td>
     <td>
          <input type="text" placeholder="Average Rating" name="RATING">
@@ -124,8 +129,30 @@ if (!isset($_SESSION['loggedin'])) {
     <td>
        Owner_Id:
     </td>
-    <td>
-         <input type="text" placeholder="Owner_Id" name="OWNER_ID">
+       <?php 
+       require 'connection.php';
+            
+    
+                  
+                  $sql = "SELECT OWNER_ID,NAME FROM owner";
+                  $get_data = mysqli_query($conn,$sql);
+                  if(mysqli_num_rows($get_data) > 0){
+                    echo "<td><select name= 'OWNER_ID'>";
+                    echo "<option>--Select Owner--</option>";
+                    while($row = mysqli_fetch_array($get_data)){
+                    echo "<option value='$row[OWNER_ID]'>$row[OWNER_ID] | $row[NAME]</option>";
+                  }
+                  echo "</select>";
+                  mysqli_free_result($get_data);
+                }
+                else {
+                  echo "Something went wrong...";
+              }
+     
+        ?>
+    
+    
+         
     </td>
     </tr> 
     <tr>

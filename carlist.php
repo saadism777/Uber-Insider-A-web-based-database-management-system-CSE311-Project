@@ -13,9 +13,10 @@ if (!isset($_SESSION['loggedin'])) {
 		<link rel = "icon" href =  
    "https://www.iconfinder.com/data/icons/logos-and-brands/512/347_Uber_logo-512.png" 
         type = "image/x-icon">
-        <link rel="stylesheet" href="admin.css"/>
+        
         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
-	</head>
+        <link rel="stylesheet" href="admin.css"/>
+      </head>
 	<body class="loggedin">
     <!--<img class="header"src="images\Banner.JPG" alt="uberbanner">-->
     <nav>
@@ -31,38 +32,39 @@ if (!isset($_SESSION['loggedin'])) {
     </nav>
 <br>
 		<div class="content">
-            <table class="table table-striped table-dark">
+    <div class="content">
+            <table class="table table-hover table-dark">
                 <thead>
                   <tr>
-                    <th scope="col">#</th>
-                    <th scope="col">First</th>
-                    <th scope="col">Last</th>
-                    <th scope="col">Handle</th>
+                    <th scope="col">Car License Number</th>
+                    <th scope="col">Car Name</th>
+                    <th scope="col">Car Color</th>
                   </tr>
                 </thead>
-                <tbody>
-                  <tr>
-                    <th scope="row">1</th>
-                    <td>Mark</td>
-                    <td>Otto</td>
-                    <td>@mdo</td>
-                  </tr>
-                  <tr>
-                    <th scope="row">2</th>
-                    <td>Jacob</td>
-                    <td>Thornton</td>
-                    <td>@fat</td>
-                  </tr>
-                  <tr>
-                    <th scope="row">3</th>
-                    <td>Larry</td>
-                    <td>the Bird</td>
-                    <td>@twitter</td>
-                  </tr>
+                
+                <?php
+                  require 'connection.php';
+                  $sql = "SELECT * FROM car";
+                  
+                  $get_data = mysqli_query($conn,$sql);
+                  if(mysqli_num_rows($get_data) > 0){
+                    while($row = mysqli_fetch_assoc($get_data)){
+                      echo
+                      "<tr><td>". $row["CAR_LICENSE_NO"].
+                      "</td><td>".$row["CAR_NAME"].
+                      "</td><td>".$row["CAR_COLOR"].
+                      "</td>
+                      </tr>";
+
+                    }
+                    echo"</table";
+                  }
+                  else{
+                    echo "0 result";
+                  }
+                  ?>
                 </tbody>
               </table>
-			<h2 color= "white">Home Page</h2>
-			<p>Welcome back, <?=$_SESSION['name']?>!</p>
-		</div>
+			
 	</body>
 </html>
