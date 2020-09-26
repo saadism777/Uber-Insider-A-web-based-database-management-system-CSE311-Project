@@ -31,8 +31,8 @@
   <div class="card zoom">
     <img class="card-img-top" src="https://usefulicons.com/uploads/icons/201907/2195/8bb325e7c0d0.png" alt="Card image cap">
     <div class="card-body">
-      <h5 class="card-title">Car Owner Log In</h5>
-      <p class="card-text">Do you want to enroll your car on Uber? Log in from here.</p>
+      <h5 class="card-title">Driver Log In</h5>
+      <p class="card-text">Do you want to take a look at your information? Log in from here.</p>
       
     </div>
     <div class="card-footer">
