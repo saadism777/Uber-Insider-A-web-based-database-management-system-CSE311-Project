@@ -101,13 +101,13 @@ $row2 = mysqli_fetch_assoc($get_user2);
     </td>
     <td>
     <select name="CAR_COLOR">
-          <option value="" disabled selected>Color of the Car</option>
+          <option value="<?=$row2['CAR_COLOR'];?>"><?=$row2['CAR_COLOR'];?></option>
           <option style="color:red;font-weight: bold" value="Red">Red</option>
-          <option style="color:blue;font-weight: bold" value="Red"value="Blue">Blue</option>
-          <option style="color:yellow;font-weight: bold" value="Red"value="Yellow">Yellow</option>
-          <option style="color:black;font-weight: bold" value="Red"value="Black">Black</option>
-          <option style="color:gray;font-weight: bold" value="Red"value="Gray">Gray</option>
-          <option style="color:silver;font-weight: bold" value="Red"value="Silver">Silver</option>
+          <option style="color:blue;font-weight: bold" value="Blue">Blue</option>
+          <option style="color:yellow;font-weight: bold" value="Yellow">Yellow</option>
+          <option style="color:black;font-weight: bold" value="Black">Black</option>
+          <option style="color:gray;font-weight: bold" value="Gray">Gray</option>
+          <option style="color:silver;font-weight: bold" value="Silver">Silver</option>
         </select>
     </tr> 
 
@@ -148,7 +148,7 @@ $row2 = mysqli_fetch_assoc($get_user2);
     </tr> 
     <tr>
     <td>
-       Owner_Id:
+       Owner_Id: Currently (<?=$row['OWNER_ID'];?>)
        </td>
        <?php 
        require 'connection.php';
@@ -158,7 +158,7 @@ $row2 = mysqli_fetch_assoc($get_user2);
                   $sql = "SELECT OWNER_ID,NAME FROM owner";
                   $get_data = mysqli_query($conn,$sql);
                   if(mysqli_num_rows($get_data) > 0){
-                    echo "<td><select name= 'OWNER_ID'>";
+                    echo "<td><select name= 'OWNER_ID'val>";
                     echo "<option>--Select Owner--</option>";
                     while($row = mysqli_fetch_array($get_data)){
                     echo "<option value='$row[OWNER_ID]'>$row[OWNER_ID] | $row[NAME]</option>";

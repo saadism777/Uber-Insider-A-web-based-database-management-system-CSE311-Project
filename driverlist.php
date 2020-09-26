@@ -82,8 +82,8 @@ background: #000000; }
                       "</td><td>".$row["RIDE_NO"].
                       "</td><td>".$row["RATING"]."&#9733".
                       "</td> <td>
-                      <a href='edit.php?DRIVER_ID=".$row["DRIVER_ID"]."'>Edit</a>
-                      <a href='delete.php?DRIVER_ID=".$row["DRIVER_ID"]."'>Delete</a>
+                      <a class='btn btn-light' href='edit.php?DRIVER_ID=".$row["DRIVER_ID"]."'>Edit</a>
+                      <a class='btn btn-danger' href='delete.php?DRIVER_ID=".$row["DRIVER_ID"]."'>Delete</a>
                     </td>
                       </tr>";
 

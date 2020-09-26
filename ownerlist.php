@@ -32,7 +32,21 @@ if (!isset($_SESSION['loggedin'])) {
         </div>
     </nav>
 <br>
+<style>  .myButton {
+  width:15%;
+  margin-left:40%;
+color: rgb(255, 255, 255); font-size: 18px; line-height: 18px; padding: 12px; border-radius: 50px; font-family: Georgia, serif; font-weight: normal; text-decoration: none; font-style: normal; font-variant: normal; text-transform: none; background-image: linear-gradient(to right, rgb(0, 0, 0) 0%, rgb(104, 104, 104) 50%, rgb(0, 0, 0) 100%); box-shadow: rgb(0, 0, 0) 5px 5px 15px 5px; border: 2px solid rgb(0, 0, 0); display: inline-block;}
+.myButton:hover {
+background: #000000; }
+.myButton:active {
+background: #000000; }
+  </style>
+  
 		<div class="content">
+    <table >
+  <a  href="OwnerReqForm.php">
+<button class="myButton" type="button"> Add </button></a></table>
+<br>
     <table class="table table-hover table-dark">
                 <thead>
                   <tr>
@@ -59,8 +73,8 @@ if (!isset($_SESSION['loggedin'])) {
                       "</td><td>".$row["PHONE_NO"].
                       "</td><td>".$row["CAR_NO"].
                       "</td><td>
-                      <a href='edit.php?DRIVER_ID=".$row["OWNER_ID"]."'>Edit</a>
-                      <a href='delete.php?DRIVER_ID=".$row["OWNER_ID"]."'>Delete</a>
+                      <a class='btn btn-light'href='owneredit.php?OWNER_ID=".$row["OWNER_ID"]."'>Edit</a>
+                      <a class='btn btn-danger' href='ownerdelete.php?OWNER_ID=".$row["OWNER_ID"]."'>Delete</a>
                     </td>
                       </tr>";
 

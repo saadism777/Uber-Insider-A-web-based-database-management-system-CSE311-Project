@@ -79,7 +79,7 @@ if (!isset($_SESSION['loggedin'])) {
 </div>
 
 <div>
-			<h1 style="color:white;text-align:center" >Welcome back, <?=$_SESSION['name']?>!</h1>
+			<h1 class="link" style="color:white;text-align:center" >Click here to view driver of the month !</h1>
         </div>
     </body>
 </div>

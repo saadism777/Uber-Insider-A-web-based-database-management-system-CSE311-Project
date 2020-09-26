@@ -42,7 +42,7 @@ if (!isset($_SESSION['loggedin'])) {
       Name:
     </td>
     <td>
-         <input type="text" placeholder="Enter your Name" name="NAME">
+         <input type="text" placeholder="Enter drivers Name" name="NAME">
     </td>
     </tr> 
     <tr>
@@ -81,11 +81,11 @@ if (!isset($_SESSION['loggedin'])) {
     <select name="CAR_COLOR">
           <option value="" disabled selected>Color of the Car</option>
           <option style="color:red;font-weight: bold" value="Red">Red</option>
-          <option style="color:blue;font-weight: bold" value="Red"value="Blue">Blue</option>
-          <option style="color:yellow;font-weight: bold" value="Red"value="Yellow">Yellow</option>
-          <option style="color:black;font-weight: bold" value="Red"value="Black">Black</option>
-          <option style="color:gray;font-weight: bold" value="Red"value="Gray">Gray</option>
-          <option style="color:silver;font-weight: bold" value="Red"value="Silver">Silver</option>
+          <option style="color:blue;font-weight: bold" value="Blue">Blue</option>
+          <option style="color:yellow;font-weight: bold" value="Yellow">Yellow</option>
+          <option style="color:black;font-weight: bold" value="Black">Black</option>
+          <option style="color:gray;font-weight: bold" value="Gray">Gray</option>
+          <option style="color:silver;font-weight: bold" value="Silver">Silver</option>
         </select>
     </tr> 
 
@@ -158,15 +158,16 @@ if (!isset($_SESSION['loggedin'])) {
     <tr>
     <td>
     </td>
+    <div>
     <td>
-         <input type="Submit" value="insert" class="sendBtn" name="insert">
+         <input type="Submit" value="insert" class="btn btn-primary" name="insert">
     </td>
     <td>
-        <a class="sendBtn" href="driverlist.php"> Return </a>
+        <a class="btn btn-danger" href="driverlist.php"> Return </a>
     </td>
     </tr> 
 
-
+</div>
 
 
 

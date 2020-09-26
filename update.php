@@ -20,11 +20,11 @@ require 'connection.php';
 $sql = "UPDATE driver SET DRIVER_ID='$driver_id', NAME='$name',DRIVER_ADDRESS='$address',PHONE_NO='$phone',
 DRIVEN_CAR_NO='$carnumber',HIRE_DATE='$date',MONTHLY_EARNING='$monthly',UBER_CONTRIBUTION='$ubercontribution',
 RIDE_NO='$rideno',RATING='$rating',OWNER_ID='$ownerid' WHERE DRIVER_ID=$id";
-$sql2 = "UPDATE car SET CAR_LICENSE_NO='$carnumber',CAR_NAME='$carname',CAR_COLOR='$carcolor',OWNER_ID='$ownerid' WHERE CAR_LICENSE_NO=$carid ";
+$sql2 = "UPDATE car SET CAR_LICENSE_NO='$carnumber',CAR_NAME='$carname',CAR_COLOR='$carcolor',OWNER_ID='$ownerid' WHERE CAR_LICENSE_NO='$carid' ";
 $update = mysqli_query($conn, $sql);
 $update2 = mysqli_query($conn, $sql2);
 
-if($update){
+if($update&&$update){
     echo "<script Type='text/javascript'>alert('Data Edited Successfully!')</script>";
     echo "<script> location.href='driverlist.php'; </script>";
 }else{
