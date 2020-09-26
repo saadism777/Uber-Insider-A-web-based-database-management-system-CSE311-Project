@@ -37,6 +37,38 @@ if (!isset($_SESSION['loggedin'])) {
 
 <form action="insert.php?" method="post" class="submission-form">
   <table>
+  <tr>
+    <td>
+       Owner_Id:
+    </td>
+       <?php 
+       require 'connection.php';
+            
+    
+                  
+                  $sql = "SELECT OWNER_ID,NAME FROM owner";
+                  $get_data = mysqli_query($conn,$sql);
+                  if(mysqli_num_rows($get_data) > 0){
+                    echo "<td><select name= 'OWNER_ID'>";
+                    echo "<option>--Select Owner--</option>";
+                    while($row = mysqli_fetch_array($get_data)){
+                    echo "<option value='$row[OWNER_ID]'>$row[OWNER_ID] | $row[NAME]</option>";
+                  }
+                  echo "</select>";
+                  mysqli_free_result($get_data);
+                }
+                else {
+                  echo "Something went wrong...";
+              }
+     
+        ?>
+    
+    
+         
+    </td>
+    <td> Owner not in the list? Add Owner <a href="OwnerReqForm.php"> here </a>
+            </td> 
+    </tr> 
     <tr>
     <td>
       Name:
@@ -125,36 +157,7 @@ if (!isset($_SESSION['loggedin'])) {
   
     </td>
     </tr> 
-    <tr>
-    <td>
-       Owner_Id:
-    </td>
-       <?php 
-       require 'connection.php';
-            
     
-                  
-                  $sql = "SELECT OWNER_ID,NAME FROM owner";
-                  $get_data = mysqli_query($conn,$sql);
-                  if(mysqli_num_rows($get_data) > 0){
-                    echo "<td><select name= 'OWNER_ID'>";
-                    echo "<option>--Select Owner--</option>";
-                    while($row = mysqli_fetch_array($get_data)){
-                    echo "<option value='$row[OWNER_ID]'>$row[OWNER_ID] | $row[NAME]</option>";
-                  }
-                  echo "</select>";
-                  mysqli_free_result($get_data);
-                }
-                else {
-                  echo "Something went wrong...";
-              }
-     
-        ?>
-    
-    
-         
-    </td>
-    </tr> 
     <tr>
     <td>
     </td>

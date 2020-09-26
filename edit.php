@@ -53,6 +53,35 @@ $row2 = mysqli_fetch_assoc($get_user2);
  <table>
  <tr>
     <td>
+       Owner_Id: Currently (<?=$row['OWNER_ID'];?>)
+       </td>
+       <?php 
+       require 'connection.php';
+            
+    
+                  
+                  $sql = "SELECT OWNER_ID,NAME FROM owner";
+                  $get_data = mysqli_query($conn,$sql);
+                  if(mysqli_num_rows($get_data) > 0){
+                    echo "<td><select name= 'OWNER_ID'val>";
+                    echo "<option>--Select Owner--</option>";
+                    while($row = mysqli_fetch_array($get_data)){
+                    echo "<option value='$row[OWNER_ID]'>$row[OWNER_ID] | $row[NAME]</option>";
+                  }
+                  echo "</select>";
+                  mysqli_free_result($get_data);
+                }
+                else {
+                  echo "Something went wrong...";
+              }
+     
+        ?>
+    </td>
+    <td> Owner not in the list? Add Owner <a href="OwnerReqForm.php"> here </a>
+            </td> 
+    <tr>
+ <tr>
+    <td>
       New ID:
     </td>
     <td>
@@ -146,33 +175,7 @@ $row2 = mysqli_fetch_assoc($get_user2);
   
     </td>
     </tr> 
-    <tr>
-    <td>
-       Owner_Id: Currently (<?=$row['OWNER_ID'];?>)
-       </td>
-       <?php 
-       require 'connection.php';
-            
-    
-                  
-                  $sql = "SELECT OWNER_ID,NAME FROM owner";
-                  $get_data = mysqli_query($conn,$sql);
-                  if(mysqli_num_rows($get_data) > 0){
-                    echo "<td><select name= 'OWNER_ID'val>";
-                    echo "<option>--Select Owner--</option>";
-                    while($row = mysqli_fetch_array($get_data)){
-                    echo "<option value='$row[OWNER_ID]'>$row[OWNER_ID] | $row[NAME]</option>";
-                  }
-                  echo "</select>";
-                  mysqli_free_result($get_data);
-                }
-                else {
-                  echo "Something went wrong...";
-              }
-     
-        ?>
-    </td>
-    <tr>
+  
     <td>
          <input type="Submit" value="insert" class="sendBtn" name="insert">
     </td>
