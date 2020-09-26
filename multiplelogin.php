@@ -50,7 +50,7 @@
     </div>
   </div>
 </div>
-                  <p style="padding-top:52%"> Visit our official website <a href="https://www.uber.com/bd/en/" target="_blank">here </a> </p>
+                  <p style="padding-top:400px"> Visit our official website <a href="https://www.uber.com/bd/en/" target="_blank">here </a> </p>
                </form>
             </div>
          </div>
