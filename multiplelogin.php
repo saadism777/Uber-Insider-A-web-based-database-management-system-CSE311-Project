@@ -46,7 +46,7 @@
       <p class="card-text">Are you a customer who faced some issue while riding with Uber? Report your issues here.</p>
     </div>
     <div class="card-footer">
-    <a href="login.php" class="btn btn-primary">Report</a>
+    <a href="complaintpage.php" class="btn btn-primary">Report</a>
     </div>
   </div>
 </div>
