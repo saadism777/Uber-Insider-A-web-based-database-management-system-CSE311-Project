@@ -60,13 +60,13 @@ $row2 = mysqli_fetch_assoc($get_user2);
             
     
                   
-                  $sql = "SELECT OWNER_ID,NAME FROM owner";
-                  $get_data = mysqli_query($conn,$sql);
+                  $sql3 = "SELECT OWNER_ID,NAME FROM owner";
+                  $get_data = mysqli_query($conn,$sql3);
                   if(mysqli_num_rows($get_data) > 0){
                     echo "<td><select name= 'OWNER_ID'val>";
                     echo "<option>--Select Owner--</option>";
-                    while($row = mysqli_fetch_array($get_data)){
-                    echo "<option value='$row[OWNER_ID]'>$row[OWNER_ID] | $row[NAME]</option>";
+                    while($row3 = mysqli_fetch_array($get_data)){
+                    echo "<option value='$row3[OWNER_ID]'>$row3[OWNER_ID] | $row3[NAME]</option>";
                   }
                   echo "</select>";
                   mysqli_free_result($get_data);

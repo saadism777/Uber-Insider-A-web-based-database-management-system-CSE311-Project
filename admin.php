@@ -79,7 +79,7 @@ if (!isset($_SESSION['loggedin'])) {
 </div>
 
 <div>
-			<h1 class="link" style="color:white;text-align:center" >Click here to view driver of the month !</h1>
+			<a href="driverofthemonth.php"><h1 class="link" style="color:white;text-align:center" >Click here to view driver of the month !</h1></a>
         </div>
     </body>
 </div>
