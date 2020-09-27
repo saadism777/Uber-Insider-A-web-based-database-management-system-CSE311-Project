@@ -3,9 +3,9 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Sep 26, 2020 at 11:22 AM
--- Server version: 10.4.14-MariaDB
--- PHP Version: 7.2.33
+-- Generation Time: Sep 27, 2020 at 11:32 AM
+-- Server version: 10.4.13-MariaDB
+-- PHP Version: 7.2.31
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -28,35 +28,42 @@ SET time_zone = "+00:00";
 --
 
 CREATE TABLE `car` (
-  `CAR_LICENSE_NO` varchar(50) NOT NULL,
-  `CAR_NAME` varchar(20) DEFAULT NULL,
-  `CAR_COLOR` varchar(10) DEFAULT NULL,
-  `OWNER_ID` int(7) DEFAULT NULL,
-  `DRIVER_ID` int(7) DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+  `CAR_LICENSE_NO` varchar(255) NOT NULL,
+  `CAR_NAME` varchar(255) DEFAULT NULL,
+  `CAR_COLOR` varchar(255) DEFAULT NULL,
+  `OWNER_ID` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `car`
 --
 
-INSERT INTO `car` (`CAR_LICENSE_NO`, `CAR_NAME`, `CAR_COLOR`, `OWNER_ID`, `DRIVER_ID`) VALUES
-('Dhaka metro-GA 20-0016', 'Toyota Corolla', 'Black', 1, 102),
-('Dhaka-metro ga 135678', 'toyota noah', '', 3, NULL);
+INSERT INTO `car` (`CAR_LICENSE_NO`, `CAR_NAME`, `CAR_COLOR`, `OWNER_ID`) VALUES
+('DHAKA METRO CHA-81-8634', 'TOYOTA COROLLA', 'White', 2),
+('DHAKA METRO HA-22-8634', 'MITSHUBISHI', 'Red', 1),
+('DHAKA METRO PA-81-5534', 'TOYOTA ALLION', 'Silver', 4);
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `complain_box`
+-- Table structure for table `complaint`
 --
 
-CREATE TABLE `complain_box` (
-  `complain_no` int(10) NOT NULL,
-  `driver_id` int(20) NOT NULL,
-  `phone_no` varchar(50) NOT NULL,
-  `car_no` varchar(70) DEFAULT NULL,
-  `complain_time` date NOT NULL,
-  `my_complain` varchar(255) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+CREATE TABLE `complaint` (
+  `PHONE_NO` varchar(255) NOT NULL,
+  `CAR_NO` varchar(255) DEFAULT NULL,
+  `CUST_NAME` varchar(255) DEFAULT NULL,
+  `CUST_PHONE_NO` varchar(255) DEFAULT NULL,
+  `TEXT` varchar(255) DEFAULT NULL,
+  `REPORTED_AT` datetime NOT NULL DEFAULT current_timestamp()
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `complaint`
+--
+
+INSERT INTO `complaint` (`PHONE_NO`, `CAR_NO`, `CUST_NAME`, `CUST_PHONE_NO`, `TEXT`, `REPORTED_AT`) VALUES
+('01951860618', 'DHAKA METRO CHA-76-8976', 'Sakib Ahmed', '01854722658', 'He was very late and behavior was poor.', '2020-09-27 15:26:30');
 
 -- --------------------------------------------------------
 
@@ -83,8 +90,14 @@ CREATE TABLE `driver` (
 --
 
 INSERT INTO `driver` (`DRIVER_ID`, `NAME`, `DRIVER_ADDRESS`, `PHONE_NO`, `DRIVEN_CAR_NO`, `HIRE_DATE`, `MONTHLY_EARNING`, `UBER_CONTRIBUTION`, `RIDE_NO`, `RATING`, `OWNER_ID`) VALUES
-(102, 'Anim Hasan', '12/A south jatrabari,dhaka', '01872230823', 'Dhaka metro-GA 20-0016', '2018-05-03', 10000.50, 2500.12, 35, 4.00, 1),
-(103, 'Abid', '3/1 mugda,Dhaka', '01715364179', 'Dhaka-metro ga 135678', '2020-09-10', 12000.00, 3000.00, 7, 4.20, 3);
+(100, 'Hasin Bhai', 'Mirpur-10', '01951860618', 'GA-0098', '2020-08-30', 2000.00, 500.00, 50, 5.00, 2),
+(104, 'Punim Hasan ', '12/A south jatrabari,dhaka', '01872230823', 'Dhaka metro-GA 20-0016', '2018-05-03', 10000.50, 2500.12, 35, 4.00, 1),
+(105, 'Taher Shah', 'Road-2,Mohammadpur,Dhaka', '0195463258', 'DHAKA METRO GA-21-8634', '2020-09-26', 12000.00, 3000.00, 70, 4.60, 2),
+(107, 'Bakir Khan', 'Shewrapara,Mirpur,Dhaka', '0184578521', 'DHAKA METRO GHA-21-2534', '2020-01-28', 8000.00, 2000.00, 20, 4.25, 4),
+(108, 'Khandakar Sharif', 'Road-3,Mohammadpur,Dhaka', '+880184576547', 'DHAKA METRO HA-81-8634', '2020-08-31', 13000.00, 3250.00, 26, 4.25, 3),
+(109, 'Khandakar Latif', 'Road-2,Mohammadpur,Dhaka', '+880174576547', 'DHAKA METRO KA-82-8634', '2020-08-31', 13000.00, 3250.00, 26, 4.25, 4),
+(110, 'AbidulSharif', 'Road-12,Mohammadpur,Dhaka', '01951860619', 'DHAKA METRO PA-81-5534', '2020-08-31', 5000.00, 1250.00, 5, 3.50, 4),
+(111, 'Gordon Ramsay', 'North Carolina, US', '8545232545', 'DHAKA METRO HA-22-8634', '2020-09-27', 25000.00, 6250.00, 56, 4.70, 1);
 
 -- --------------------------------------------------------
 
@@ -103,8 +116,6 @@ CREATE TABLE `log_in` (
 --
 
 INSERT INTO `log_in` (`id`, `username`, `password`) VALUES
-(4, 'nian2', '$2y$10$miLJeRXycPhq2WjwnAZIYuH9k.Dk2YCE/olMBoarLZ0M6278X.dq6'),
-(5, 'raisachowdhury', '$2y$10$80sFBSpcGPf2/G.YOA4u4.FryGHDFndttLjQ9MM1EqJIstqvGlqkG'),
 (3, 'raisan', '$2y$10$MPrHIj0BxZpJQGIU8ub9L.RErh0/BFUaD2AHwKJAolC8pxkTC2Lwe'),
 (2, 'saadism7', '$2y$10$rwfsznzFUTyV9poSeMKn9ORwwNxgJyGFVM95Nn0.Sh6hEdqNE8YzC'),
 (1, 'test', '$2y$10$.POWRtCUkuU6mv4j5rDAW.PGmBH5Jcf4YYB0TDJsnAItxWzfJuqa2');
@@ -128,10 +139,12 @@ CREATE TABLE `owner` (
 --
 
 INSERT INTO `owner` (`OWNER_ID`, `NAME`, `ADDRESS`, `PHONE_NO`, `CAR_NO`) VALUES
-(1, 'Abul Hakim', '13/3 simson road,Puran Dhaka', '01921384671', 'Dhaka metro-GA 15-4919'),
+(1, 'Abul Hakimss', '13/3 simson road,Puran Dhaka', '01921384671', 'Dhaka metro-GA 15-4919'),
 (2, 'Saad Pasha', '32/A south mughdapara,Dhaka', '01921384671', 'Dhaka metro-GA 15-4919'),
 (3, 'Fahim Hasan', '20/A khan bari,kalachandpur', '+8801715368169', 'Dhaka metro-GA 21-8571'),
-(4, 'Abdul Jalil', 'Bashundhara R/A,block-B,road-18,house-567A', '01682327464', 'Dhaka metro-GA 20-0061');
+(4, 'Abdul Jalil', 'Bashundhara R/A,block-B,road-18,house-567A', '01682327464', 'Dhaka metro-GA 20-0061'),
+(6, 'Raisa', 'blablablass', '01951860617', 'DHAKA METRO KHA-77-8976'),
+(7, 'Hamim', 'banani', '8887885555', 'DHAKA METRO CHA-96-7976');
 
 --
 -- Indexes for dumped tables
@@ -142,22 +155,19 @@ INSERT INTO `owner` (`OWNER_ID`, `NAME`, `ADDRESS`, `PHONE_NO`, `CAR_NO`) VALUES
 --
 ALTER TABLE `car`
   ADD PRIMARY KEY (`CAR_LICENSE_NO`),
-  ADD KEY `OWNER_ID` (`OWNER_ID`),
-  ADD KEY `DRIVER_ID` (`DRIVER_ID`);
+  ADD KEY `OWNER_ID` (`OWNER_ID`);
 
 --
--- Indexes for table `complain_box`
+-- Indexes for table `complaint`
 --
-ALTER TABLE `complain_box`
-  ADD PRIMARY KEY (`complain_no`),
-  ADD KEY `driver_id` (`driver_id`);
+ALTER TABLE `complaint`
+  ADD PRIMARY KEY (`PHONE_NO`);
 
 --
 -- Indexes for table `driver`
 --
 ALTER TABLE `driver`
   ADD PRIMARY KEY (`DRIVER_ID`),
-  ADD UNIQUE KEY `UC_Drivers` (`PHONE_NO`),
   ADD KEY `OWNER_ID` (`OWNER_ID`);
 
 --
@@ -178,28 +188,22 @@ ALTER TABLE `owner`
 --
 
 --
--- AUTO_INCREMENT for table `complain_box`
---
-ALTER TABLE `complain_box`
-  MODIFY `complain_no` int(10) NOT NULL AUTO_INCREMENT;
-
---
 -- AUTO_INCREMENT for table `driver`
 --
 ALTER TABLE `driver`
-  MODIFY `DRIVER_ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=104;
+  MODIFY `DRIVER_ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=112;
 
 --
 -- AUTO_INCREMENT for table `log_in`
 --
 ALTER TABLE `log_in`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT for table `owner`
 --
 ALTER TABLE `owner`
-  MODIFY `OWNER_ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `OWNER_ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 
 --
 -- Constraints for dumped tables
@@ -209,14 +213,7 @@ ALTER TABLE `owner`
 -- Constraints for table `car`
 --
 ALTER TABLE `car`
-  ADD CONSTRAINT `car_ibfk_2` FOREIGN KEY (`DRIVER_ID`) REFERENCES `driver` (`DRIVER_ID`) ON DELETE CASCADE,
-  ADD CONSTRAINT `car_ibfk_3` FOREIGN KEY (`OWNER_ID`) REFERENCES `owner` (`OWNER_ID`) ON DELETE CASCADE;
-
---
--- Constraints for table `complain_box`
---
-ALTER TABLE `complain_box`
-  ADD CONSTRAINT `complain_box_ibfk_1` FOREIGN KEY (`driver_id`) REFERENCES `driver` (`DRIVER_ID`) ON DELETE CASCADE;
+  ADD CONSTRAINT `car_ibfk_1` FOREIGN KEY (`OWNER_ID`) REFERENCES `owner` (`OWNER_ID`);
 
 --
 -- Constraints for table `driver`
