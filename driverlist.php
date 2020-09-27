@@ -27,6 +27,7 @@ if (!isset($_SESSION['loggedin'])) {
                 <li><a href="driverlist.php" class="aactive" class="link">Driver List</a></li>
                 <li><a href="ownerlist.php" class="link">Owner List</a></li>
                 <li><a href="carlist.php" class="link">Car List</a></li>
+                <li><a href="complaintpanel.php"class="link">Complaint Box</a></li>
                 <li><a href="logout.php"onclick="return confirm('Are you sure to logout?');" class="link"><i class="fas fa-sign-out-alt"></i>Logout</a></li>
              </div>
         </div>

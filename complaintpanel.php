@@ -23,33 +23,64 @@ if (!isset($_SESSION['loggedin'])) {
     <nav>
         <div class="bg-img">
             <div class="container">
-                <li><a href="admin.php"class="aactive" class="link" >Home</a></li>
+                <li><a href="admin.php" class="link" >Home</a></li>
                 <li><a href="driverlist.php" class="link">Driver List</a></li>
                 <li><a href="ownerlist.php" class="link">Owner List</a></li>
                 <li><a href="carlist.php" class="link">Car List</a></li>
+                <li><a href="complaintpanel.php" class="aactive" class="link">Complaint Box</a></li>
                 <li><a href="logout.php" onclick="return confirm('Are you sure to logout?');" class="link"><i class="fas fa-sign-out-alt"></i>Logout</a></li>
              </div>
         </div>
     </nav>
 <br>
-<div>
-			<h1 style="color:white;text-align:center" >Your driver of the month is: </h1>
-</div>
 <?php
     require 'connection.php';
-    $sql = "SELECT NAME,DRIVER_ADDRESS,PHONE_NO,RATING,HIRE_DATE,MAX(MONTHLY_EARNING) AS MAXEARN,UBER_CONTRIBUTION,RIDE_NO FROM driver";
+    $sql = "SELECT COUNT(PHONE_NO) as totcom FROM complaint";
     $get_data = mysqli_query($conn,$sql);
-    $row = mysqli_fetch_assoc($get_data);
+    $totalcomplains = mysqli_fetch_assoc($get_data);
     ?>
+<div>
+			<h1 style="color:white;" >Total Complaints : <?=$totalcomplains["totcom"]?>  </h1>
+</div>
 
-<div style="color:white;margin:5%;">
-<p style="font-size:50px;"><b style="font-size:100px;"><?=$row["NAME"]?></b> Who completed <?=$row["RIDE_NO"]?> rides and earned a total of <?=$row["MAXEARN"]?> &#2547 and contributed <?=$row["UBER_CONTRIBUTION"]?> &#2547 to Uber.</h3>
-        
-        <h2 class="link">Driver Details:-</h2>
-        
-        <h3>Address :<?=$row["DRIVER_ADDRESS"]?></h3>
-        <h3>Phone Number :<?=$row["PHONE_NO"]?></h3>
-        <h3>Date Hired :<?=$row["HIRE_DATE"]?> </h3>
-        <h3>Average Rating :<?=$row["RATING"]?>&#9733</h3>
-  </div>
-  <a href="admin.php"><h1 class="link" style="color:white;text-align:center" >Go back to homepage !</h1></a>
+<table class="table table-hover table-dark">
+                <thead>
+                  <tr>
+                    <th scope="col">Driver Name</th>
+                    <th scope="col">Car License Number</th>
+                    <th scope="col">Driver Phone Number</th>
+                    <th scope="col">Customer Name</th>
+                    <th scope="col">Customer Phone Number</th>
+                    <th scope="col">Complaint Description</th>
+                    <th scope="col">Complaint Date</th>
+                    <th scope="col">Solved?</th>
+                  </tr>
+                </thead>
+                
+                <?php
+                  require 'connection.php';
+                  $sql2 = "SELECT D.NAME,D.PHONE_NO,D.DRIVEN_CAR_NO,CUST_NAME,CUST_PHONE_NO,TEXT,REPORTED_AT FROM driver AS D ,complaint AS C WHERE D.PHONE_NO=C.PHONE_NO OR D.DRIVEN_CAR_NO=C.CAR_NO";
+                  
+                  $get_data2 = mysqli_query($conn,$sql2);
+                  if(mysqli_num_rows($get_data2) > 0){
+                    while($row = mysqli_fetch_assoc($get_data2)){
+                      echo
+                      "<tr><td>". $row["NAME"].
+                      "</td><td>".$row["DRIVEN_CAR_NO"].
+                      "</td><td>".$row["PHONE_NO"].
+                      "</td><td>".$row["CUST_NAME"].
+                      "</td><td>".$row["CUST_PHONE_NO"].
+                      "</td><td>".$row["TEXT"].
+                      "</td><td>".$row["REPORTED_AT"].
+                      "</td><td><a class='btn btn-danger' href='comdelete.php?PHONE_NO=".$row["PHONE_NO"]."'>Delete</a></td>
+                      </tr>";
+
+                    }
+                    echo"</table";
+                  }
+                  else{
+                    echo "0 result";
+                  }
+                  ?>
+                </tbody>
+              </table>
